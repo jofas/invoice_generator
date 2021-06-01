@@ -1,0 +1,53 @@
+\documentclass[foldmarks=false, fromalign=right, fromphone, fromemail]
+{scrlttr2}
+\usepackage[german]{babel}
+\usepackage{tabu}
+\usepackage{datetime}
+
+\def\recipient{
+  {{ recipient.company + "\\" }}
+  {{ recipient.name }} \\
+  {{ recipient.address.street }} {{ recipient.address.house_number }} \\
+  {{ recipient.address.postal_code }} {{ recipient.address.place }} \\
+  {{ recipient.address.country }}
+}
+
+\newdate{date}{ {{ invoice_date.day }} }{ {{ invoice_date.month }} }{ {{invoice_date.year }} }
+\date{\displaydate{date}}
+
+\begin{document}
+\setkomavar{fromname}{ {{ sender.company }} }
+\setkomavar{fromaddress}{
+  {{ sender.address.street }} {{ sender.address.house_number}} \\
+  {{ sender.address.postal_code }} {{ sender.address.place }} \\
+  {{ sender.address.country }}
+}
+\setkomavar{backaddress}{
+  {{ sender.address.street }} {{ sender.address.house_number}} \\
+  {{ sender.address.postal_code }} {{ sender.address.place }} \\
+  {{ sender.address.country }}
+}
+\setkomavar{fromphone}{ {{ sender.phone }} }
+\setkomavar{fromemail}{ {{ sender.email }} }
+\setkomavar{firstfoot}{\small{Steuernummer: {{ tax_id }} } }
+
+\begin{letter}{\recipient}
+  \opening{\textbf{Rechnung Nr. {{ invoice_nr }} } }
+
+  \begin{tabu}{|l|X|r|}
+    \hline
+    \textbf{Leistungszeitraum} &\textbf{Beschreibung} &\textbf{Preis} \\
+    \hline
+    {% for entry in entries %}
+      {{ entry.start }} - {{ entry.end }} &{{ entry.description }} &{{ locale.currency(entry.price, grouping=True) }}\\
+      \hline
+    {% endfor %}
+    &19\% MwSt. &{{ locale.currency(tax, grouping=True) }}\\
+    \hline
+    &\textbf{Gesamtbetrag} &\textbf{ {{ locale.currency(sum_, grouping = True) }} }\\
+    \hline
+  \end{tabu}
+  ~\\ ~\\
+  Bitte \"uberweisen Sie den Gesamtbetrag auf Konto Nr. {{ iban }}.
+\end{letter}
+\end{document}
