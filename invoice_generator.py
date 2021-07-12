@@ -157,7 +157,7 @@ def main(filename="-"):
         ))
 
     # run two times to make sure everything is build correctly
-    # (e.g. latex needs to compilations to get the table of contents
+    # (e.g. latex needs two compilations to get the table of contents
     # right)
     subprocess.run(
         ["lualatex", "--output-directory=./build", filename])
