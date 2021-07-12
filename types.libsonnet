@@ -17,7 +17,7 @@
     phone: phone,
     email: email,
   },
-  Entry(description, price, start, end): {
+  Entry(description, price, start, end=null): {
     description: description,
     price: price,
     start: start,

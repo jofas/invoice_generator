@@ -20,11 +20,14 @@ class Date:
 
     @staticmethod
     def fromNamespace(n):
-        return Date(
-            day=n.day,
-            month=n.month,
-            year=n.year,
-        )
+        if n is not None:
+            return Date(
+                day=n.day,
+                month=n.month,
+                year=n.year,
+            )
+        else:
+            return None
 
 
 class Address:
@@ -111,7 +114,7 @@ class Invoice:
         )
 
 
-def main(filename = "-"):
+def main(filename="-"):
     locale.setlocale(locale.LC_ALL, locale="de_DE.UTF-8")
 
     env = Environment(
@@ -153,6 +156,9 @@ def main(filename = "-"):
             locale=locale,
         ))
 
+    # run two times to make sure everything is build correctly
+    # (e.g. latex needs to compilations to get the table of contents
+    # right)
     subprocess.run(
         ["lualatex", "--output-directory=./build", filename])
     subprocess.run(

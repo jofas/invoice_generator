@@ -1,0 +1,60 @@
+{
+  "sender": {
+    "address": {
+      "street": "Second Ave",
+      "house_number": "2131",
+      "postal_code": "54321",
+      "place": "Nowhere",
+      "country": "Germany"
+    },
+    "company": "Company 1",
+    "phone": "+49 1245 678910",
+    "email": "test@company1.de"
+  },
+  "tax_id": "ABC/DEFG/HIJK",
+  "iban": "DE1233212333123332",
+  "invoice_date": {
+    "day": 12,
+    "month": 3,
+    "year": 2021
+  },
+  "invoice_nr": 1,
+  "recipient": {
+    "address": {
+      "street": "Main Street",
+      "house_number": "12b",
+      "postal_code": "12345",
+      "place": "Somewhere",
+      "country": "Germany"
+    },
+    "company": "Company 2",
+    "phone": null,
+    "email": null
+  },
+  "entries": [
+    {
+      "description": "A work item",
+      "price": 12.99,
+      "start": {
+        "day": 1,
+        "month": 3,
+        "year": 2021
+      },
+      "end": null
+    },
+    {
+      "description": "A second work item",
+      "price": 400,
+      "start": {
+        "day": 2,
+        "month": 3,
+        "year": 2021
+      },
+      "end": {
+        "day": 12,
+        "month": 3,
+        "year": 2021
+      }
+    }
+  ]
+}

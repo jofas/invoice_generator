@@ -39,7 +39,8 @@
     \textbf{Leistungszeitraum} &\textbf{Beschreibung} &\textbf{Preis} \\
     \hline
     {% for entry in entries %}
-      {{ entry.start }} - {{ entry.end }} &{{ entry.description }} &{{ locale.currency(entry.price, grouping=True) }}\\
+      {{ entry.start }} {% if entry.end != None %} - {{ entry.end }} {% endif %}
+      &{{ entry.description }} &{{ locale.currency(entry.price, grouping=True) }}\\
       \hline
     {% endfor %}
     &19\% MwSt. &{{ locale.currency(tax, grouping=True) }}\\
