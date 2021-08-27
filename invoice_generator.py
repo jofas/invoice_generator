@@ -136,7 +136,6 @@ def main(filename="-"):
 
     sum_ = sum([entry.price for entry in invoice.entries])
     tax = sum_ * 0.19
-    sum_ = sum_ + tax
 
     pathlib.Path("./build").mkdir(exist_ok=True)
 

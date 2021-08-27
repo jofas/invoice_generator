@@ -43,10 +43,14 @@
       &{{ entry.description }} &{{ locale.currency(entry.price, grouping=True) }}\\
       \hline
     {% endfor %}
-    &19\% MwSt. &{{ locale.currency(tax, grouping=True) }}\\
-    \hline
-    &\textbf{Gesamtbetrag} &\textbf{ {{ locale.currency(sum_, grouping = True) }} }\\
-    \hline
+    \multicolumn{3}{c}{}\\
+    \cline{2-3}
+    \multicolumn{1}{c|}{}&Zwischensumme ohne MwSt. &{{ locale.currency(sum_, grouping=True) }}\\
+    \cline{2-3}
+    \multicolumn{1}{c|}{}&19\% MwSt. &{{ locale.currency(tax, grouping=True) }}\\
+    \cline{2-3}
+    \multicolumn{1}{c|}{}&\textbf{Gesamtbetrag} &\textbf{ {{ locale.currency(sum_ + tax, grouping = True) }} }\\
+    \cline{2-3}
   \end{tabu}
   ~\\ ~\\
   Bitte \"uberweisen Sie den Gesamtbetrag auf Konto Nr. {{ iban }}.
