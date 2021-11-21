@@ -50,10 +50,9 @@ class Address:
 
 
 class Person:
-    def __init__(self, address, company, phone, email):
+    def __init__(self, address, company, email):
         self.address = address
         self.company = company
-        self.phone = phone
         self.email = email
 
     @staticmethod
@@ -61,7 +60,6 @@ class Person:
         return Person(
             address=Address.fromNamespace(n.address),
             company=n.company,
-            phone=n.phone,
             email=n.email,
         )
 

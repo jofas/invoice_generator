@@ -1,4 +1,4 @@
-\documentclass[foldmarks=false, fromalign=right, fromphone, fromemail]
+\documentclass[foldmarks=false, fromalign=right, fromemail]
 {scrlttr2}
 \usepackage[german]{babel}
 \usepackage{tabu}
@@ -27,7 +27,6 @@
   {{ sender.address.postal_code }} {{ sender.address.place }} \\
   {{ sender.address.country }}
 }
-\setkomavar{fromphone}{ {{ sender.phone }} }
 \setkomavar{fromemail}{ {{ sender.email }} }
 \setkomavar{firstfoot}{\small{Steuernummer: {{ tax_id }} } }
 
