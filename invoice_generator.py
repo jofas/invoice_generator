@@ -50,9 +50,10 @@ class Address:
 
 
 class Person:
-    def __init__(self, address, company, email):
+    def __init__(self, address, company, phone, email):
         self.address = address
         self.company = company
+        self.phone = phone
         self.email = email
 
     @staticmethod
@@ -60,7 +61,23 @@ class Person:
         return Person(
             address=Address.fromNamespace(n.address),
             company=n.company,
+            phone=n.phone,
             email=n.email,
+        )
+
+
+class PaymentDetails:
+    def __init__(self, bank, iban, bic):
+        self.bank = bank
+        self.iban = iban
+        self.bic = bic
+
+    @staticmethod
+    def fromNamespace(n):
+        return PaymentDetails(
+            bank = n.bank,
+            iban = n.iban,
+            bic = n.bic,
         )
 
 
@@ -86,14 +103,14 @@ class Invoice:
             self,
             sender,
             tax_id,
-            iban,
+            payment_details,
             invoice_date,
             invoice_nr,
             recipient,
             entries):
         self.sender = sender
         self.tax_id = tax_id
-        self.iban = iban
+        self.payment_details = payment_details
         self.invoice_date = invoice_date
         self.invoice_nr = invoice_nr
         self.recipient = recipient
@@ -104,7 +121,7 @@ class Invoice:
         return Invoice(
             sender=Person.fromNamespace(n.sender),
             tax_id=n.tax_id,
-            iban=n.iban,
+            payment_details=PaymentDetails.fromNamespace(n.payment_details),
             invoice_date=n.invoice_date,
             invoice_nr=n.invoice_nr,
             recipient=Person.fromNamespace(n.recipient),
@@ -143,7 +160,7 @@ def main(filename="-"):
         file.write(template.render(
             sender=invoice.sender,
             tax_id=invoice.tax_id,
-            iban=invoice.iban,
+            payment_details=invoice.payment_details,
             invoice_nr=invoice.invoice_nr,
             invoice_date=invoice.invoice_date,
             recipient=invoice.recipient,

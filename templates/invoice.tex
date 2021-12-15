@@ -1,8 +1,50 @@
-\documentclass[foldmarks=false, fromalign=right, fromemail]
-{scrlttr2}
+\documentclass{letter}
 \usepackage[german]{babel}
 \usepackage{tabu}
 \usepackage{datetime}
+\usepackage[colorlinks=true, urlcolor=black]{hyperref} % Links
+\usepackage{fancyhdr}
+\usepackage[margin=0.5in]{geometry}
+
+\geometry{left=20mm,right=20mm,top=20mm,bottom=40mm}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\cfoot{
+  \begin{tabu}{lXllXll}
+  {{ sender.company }}
+    &
+    &E-Mail:
+    &\href{mailto:{{ sender.email }} }{ {{ sender.email }} }
+    &
+    &
+    &{{ payment_details.bank }} \\
+  {{ sender.address.street }} {{ sender.address.house_number }}
+    &
+    &Tel.:
+    &{{ sender.phone }}
+    &
+    &IBAN:
+    &{{ payment_details.iban }} \\
+  {{ sender.address.postal_code }} {{sender.address.place }}
+   &
+   &St.-Nr.:
+   &{{ tax_id }}
+   &
+   &BIC:
+   &{{ payment_details.bic }} \\
+  \end{tabu}
+}
+
+\def\returnaddr{
+  {\scriptsize {{ sender.company }} | %
+    {{ sender.address.street }} {{ sender.address.house_number }} | %
+    {{ sender.address.postal_code }} {{ sender.address.place }}
+  }
+}
 
 \def\recipient{
   {{ recipient.company + "\\" }}
@@ -12,26 +54,35 @@
   {{ recipient.address.country }}
 }
 
+\def\sender{
+  {{ sender.company }} \\
+  {{ sender.address.street }} {{ sender.address.house_number }} \\
+  {{ sender.address.postal_code }} {{sender.address.place }} \\
+  {{ sender.address.country }} \\~\\
+  Tel.: {{ sender.phone }} \\
+  E-Mail: \href{mailto:{{ sender.email }} }{ {{ sender.email }} }
+}
+
 \newdate{date}{ {{ invoice_date.day }} }{ {{ invoice_date.month }} }{ {{invoice_date.year }} }
 \date{\displaydate{date}}
 
-\begin{document}
-\setkomavar{fromname}{ {{ sender.company }} }
-\setkomavar{fromaddress}{
-  {{ sender.address.street }} {{ sender.address.house_number}} \\
-  {{ sender.address.postal_code }} {{ sender.address.place }} \\
-  {{ sender.address.country }}
-}
-\setkomavar{backaddress}{
-  {{ sender.address.street }} {{ sender.address.house_number}} \\
-  {{ sender.address.postal_code }} {{ sender.address.place }} \\
-  {{ sender.address.country }}
-}
-\setkomavar{fromemail}{ {{ sender.email }} }
-\setkomavar{firstfoot}{\small{Steuernummer: {{ tax_id }} } }
+\pagestyle{fancy}
 
-\begin{letter}{\recipient}
-  \opening{\textbf{Rechnung Nr. {{ invoice_nr }} } }
+\begin{document}
+
+  \begin{flushright}
+    \sender
+  \end{flushright}
+
+  \returnaddr
+
+  \recipient\\\\
+
+  \begin{flushright}
+    \displaydate{date}
+  \end{flushright}
+
+  \textbf{\Large{Rechnung Nr.\ {{ invoice_nr }} }}
 
   \begin{tabu}{|l|X|r|}
     \hline
@@ -52,6 +103,5 @@
     \cline{2-3}
   \end{tabu}
   ~\\ ~\\
-  Bitte \"uberweisen Sie den Gesamtbetrag auf Konto Nr. {{ iban }}.
-\end{letter}
+  Bitte \"uberweisen Sie den Gesamtbetrag auf Konto Nr. {{ payment_details.iban }}.
 \end{document}

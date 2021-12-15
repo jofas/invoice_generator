@@ -28,3 +28,9 @@ Dependencies
 * ``python 3``
 
 * the ``jinja2`` and ``fire`` python packages
+
+
+TODO
+----
+
+* offer generator
