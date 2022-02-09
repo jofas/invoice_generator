@@ -9,11 +9,16 @@ types.Invoice(
       place='Essen',
     ),
     company='Thyssen Krupp',
+    name='Maike Musterfrau',
     phone='02218/224466',
     email='xyz@abc.de',
   ),
   tax_id='LMN/OPQ/RSTU',
-  iban='DE5454545454545454545454',
+  payment_details=types.PaymentDetails(
+    bank='Deutsche Bank',
+    iban='DE5454545454545454545454',
+    bic='SOMEBICXXX',
+  ),
   invoice_date=types.Date(6, 7, 2021),
   invoice_nr=2,
   recipient=types.Person(
@@ -24,6 +29,7 @@ types.Invoice(
       place='Köln',
     ),
     company='Siemens AG',
+    name='Max Mustermann',
   ),
   entries=[
     types.Entry(

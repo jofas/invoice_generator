@@ -15,7 +15,15 @@
 
 \cfoot{
   \begin{tabu}{lXllXll}
-  {{ sender.company }}
+  {% if sender.company is not none and sender.name is not none %} %
+    {{ sender.company }}
+    &&&&&&\\
+  {{ sender.name }} %
+  {% elif sender.company is not none %} %
+    {{ sender.company }} %
+  {% elif sender.name is not none %} %
+    {{ sender.name }} %
+  {% endif %} %
     &
     &E-Mail:
     &\href{mailto:{{ sender.email }} }{ {{ sender.email }} }
@@ -41,21 +49,23 @@
 
 \def\returnaddr{
   {\scriptsize {{ sender.company }} | %
+    {% if sender.name is not none %}{{ sender.name }} | {% endif %} %
     {{ sender.address.street }} {{ sender.address.house_number }} | %
     {{ sender.address.postal_code }} {{ sender.address.place }}
   }
 }
 
 \def\recipient{
-  {{ recipient.company + "\\" }}
-  {{ recipient.name }} \\
+  {% if recipient.company is not none %}{{ recipient.company }}\\{% endif %} %
+  {% if recipient.name is not none %}{{ recipient.name }}\\{% endif %} %
   {{ recipient.address.street }} {{ recipient.address.house_number }} \\
   {{ recipient.address.postal_code }} {{ recipient.address.place }} \\
   {{ recipient.address.country }}
 }
 
 \def\sender{
-  {{ sender.company }} \\
+  {% if sender.company is not none %}{{ sender.company }}\\{% endif %} %
+  {% if sender.name is not none %}{{ sender.name }}\\{% endif %} %
   {{ sender.address.street }} {{ sender.address.house_number }} \\
   {{ sender.address.postal_code }} {{sender.address.place }} \\
   {{ sender.address.country }} \\~\\
@@ -73,6 +83,7 @@
   \begin{flushright}
     \sender
   \end{flushright}
+  ~\\
 
   \returnaddr
 

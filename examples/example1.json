@@ -8,11 +8,16 @@
       "country": "Germany"
     },
     "company": "Company 1",
+    "name": null,
     "phone": "+49 1245 678910",
     "email": "test@company1.de"
   },
   "tax_id": "ABC/DEFG/HIJK",
-  "iban": "DE1233212333123332",
+  "payment_details": {
+    "bank": "Commerzbank",
+    "iban": "DE1233212333123332",
+    "bic": "SOMEBICXXX"
+  },
   "invoice_date": {
     "day": 12,
     "month": 3,
@@ -28,6 +33,7 @@
       "country": "Germany"
     },
     "company": "Company 2",
+    "name": null,
     "phone": null,
     "email": null
   },

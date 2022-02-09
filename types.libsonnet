@@ -11,9 +11,10 @@
     place: place,
     country: country,
   },
-  Person(address, company, phone=null, email=null): {
+  Person(address, company=null, name=null, phone=null, email=null): {
     address: address,
     company: company,
+    name: name,
     phone: phone,
     email: email,
   },
