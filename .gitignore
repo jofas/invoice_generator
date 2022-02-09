@@ -1,5 +1,9 @@
 constants.libsonnet
 recipients.libsonnet
+
 invoices/
+letters/
+
 build/
+
 __pycache__/

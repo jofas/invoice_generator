@@ -34,3 +34,5 @@ TODO
 ----
 
 * offer generator
+
+* ``Date`` type to simple date string
