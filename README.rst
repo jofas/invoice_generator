@@ -3,12 +3,13 @@ Invoice Generator
 
 Generates invoice PDFs from structured data using a LaTeX template.
 The data is provided by a ``json/jsonnet`` file.
+Also supports the generation of business letters.
 
 
 Example
 -------
 
-The example invoices in the ``examples/`` dir are generated via:
+The example documents in the ``examples/`` dir are generated via:
 
 .. code:: bash
 
