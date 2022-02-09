@@ -32,4 +32,6 @@ Dependencies
 TODO
 ----
 
+* letter generator
+
 * offer generator
