@@ -131,7 +131,7 @@ class Invoice:
         )
 
 
-def main(filename="-"):
+def invoice(filename="-"):
     locale.setlocale(locale.LC_ALL, locale="de_DE.UTF-8")
 
     env = Environment(
@@ -182,4 +182,4 @@ def main(filename="-"):
 
 
 if __name__ == "__main__":
-    fire.Fire(main)
+    fire.Fire()
