@@ -2,3 +2,4 @@ constants.libsonnet
 recipients.libsonnet
 invoices/
 build/
+__pycache__/

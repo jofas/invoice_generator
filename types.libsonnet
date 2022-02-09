@@ -38,4 +38,13 @@
     recipient: recipient,
     entries: entries,
   },
+  Letter(sender, letter_date, letter_nr, recipient, headline, content, closing): {
+    sender: sender,
+    letter_date: letter_date,
+    letter_nr: letter_nr,
+    recipient: recipient,
+    headline: headline,
+    content: content,
+    closing: closing,
+  },
 }

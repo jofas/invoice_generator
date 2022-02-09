@@ -15,7 +15,7 @@ The example invoices in the ``examples/`` dir are generated via:
    sh generate_examples.sh
 
 **Note:** the number in the filename of the generated PDF comes from
-the ``invoice_nr`` provided by the ``json`` input.
+the ``invoice_nr``/``letter_nr`` provided by the ``json`` input.
 
 
 Dependencies
@@ -31,7 +31,5 @@ Dependencies
 
 TODO
 ----
-
-* letter generator
 
 * offer generator
