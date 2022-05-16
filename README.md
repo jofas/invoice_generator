@@ -29,6 +29,10 @@ the `invoice_nr`/`letter_nr` provided by the `json` input.
 
 ## TODO
 
-* offer generator
+* [ ] offer generator
 
-* `Date` type to simple date string
+* [ ] `Date` type to simple date string
+
+* [ ] time management
+
+* [ ] cost management
