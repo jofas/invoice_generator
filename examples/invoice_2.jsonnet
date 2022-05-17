@@ -19,7 +19,7 @@ types.Invoice(
     iban='DE5454545454545454545454',
     bic='SOMEBICXXX',
   ),
-  invoice_date=types.Date(6, 7, 2021),
+  invoice_date='2021-07-06',
   invoice_nr=2,
   recipient=types.Person(
     address=types.Address(
@@ -35,19 +35,19 @@ types.Invoice(
     types.Entry(
       description='Irgendeine Dienstleistung',
       price=25000.0,
-      start=types.Date(3, 3, 2021),
-      end=types.Date(6, 7, 2021),
+      start='2021-03-03',
+      end='2021-07-06',
     ),
     types.Entry(
       description='Irgendeine andere Dienstleistung',
       price=20170.0,
-      start=types.Date(5, 5, 2021),
-      end=types.Date(6, 6, 2021),
+      start='2021-05-05',
+      end='2021-06-06',
     ),
     types.Entry(
       description='Irgendeine coole Machine',
       price=80000.0,
-      start=types.Date(6, 7, 2021),
+      start='2021-07-06',
     ),
   ],
 )

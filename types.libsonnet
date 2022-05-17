@@ -1,9 +1,4 @@
 {
-  Date(day, month, year): {
-    day: day,
-    month: month,
-    year: year,
-  },
   Address(street, house_number, postal_code, place, country='Deutschland'): {
     street: street,
     house_number: house_number,

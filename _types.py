@@ -1,23 +1,4 @@
-class Date:
-    def __init__(self, day, month, year):
-        self.day = day
-        self.month = month
-        self.year = year
-
-    def __repr__(self):
-        return "{:02d}.{:02d}.{:04d}".format(self.day, self.month, self.year)
-
-    @staticmethod
-    def fromNamespace(n):
-        if n is not None:
-            return Date(
-                day=n.day,
-                month=n.month,
-                year=n.year,
-            )
-        else:
-            return None
-
+from dateutil import parser
 
 class Address:
     def __init__(self, street, house_number, postal_code, place, country):
@@ -81,11 +62,16 @@ class Entry:
 
     @staticmethod
     def fromNamespace(n):
+        if n.end is not None:
+            end = parser.isoparse(n.end)
+        else:
+            end = None
+
         return Entry(
             description=n.description,
             price=n.price,
-            start=Date.fromNamespace(n.start),
-            end=Date.fromNamespace(n.end),
+            start=parser.isoparse(n.start),
+            end=end,
         )
 
 
@@ -113,7 +99,7 @@ class Invoice:
             sender=Person.fromNamespace(n.sender),
             tax_id=n.tax_id,
             payment_details=PaymentDetails.fromNamespace(n.payment_details),
-            invoice_date=Date.fromNamespace(n.invoice_date),
+            invoice_date=parser.isoparse(n.invoice_date),
             invoice_nr=n.invoice_nr,
             recipient=Person.fromNamespace(n.recipient),
             entries=[Entry.fromNamespace(i) for i in n.entries],
@@ -142,7 +128,7 @@ class Letter:
     def fromNamespace(n):
         return Letter(
             sender=Person.fromNamespace(n.sender),
-            letter_date=Date.fromNamespace(n.letter_date),
+            letter_date=parser.isoparse(n.letter_date),
             letter_nr=n.letter_nr,
             recipient=Person.fromNamespace(n.recipient),
             headline=n.headline,

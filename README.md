@@ -31,8 +31,6 @@ the `invoice_nr`/`letter_nr` provided by the `json` input.
 
 * [ ] offer generator
 
-* [ ] `Date` type to simple date string
-
 * [ ] time management
 
 * [ ] cost management

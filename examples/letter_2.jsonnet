@@ -13,7 +13,7 @@ types.Letter(
     phone='02218/224466',
     email='xyz@abc.de',
   ),
-  letter_date=types.Date(6, 7, 2021),
+  letter_date='2021-07-06',
   letter_nr=2,
   recipient=types.Person(
     address=types.Address(

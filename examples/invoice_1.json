@@ -18,11 +18,7 @@
     "iban": "DE1233212333123332",
     "bic": "SOMEBICXXX"
   },
-  "invoice_date": {
-    "day": 12,
-    "month": 3,
-    "year": 2021
-  },
+  "invoice_date": "2021-03-12",
   "invoice_nr": 1,
   "recipient": {
     "address": {
@@ -41,26 +37,14 @@
     {
       "description": "A work item",
       "price": 12.99,
-      "start": {
-        "day": 1,
-        "month": 3,
-        "year": 2021
-      },
+      "start": "2021-03-01",
       "end": null
     },
     {
       "description": "A second work item",
       "price": 400,
-      "start": {
-        "day": 2,
-        "month": 3,
-        "year": 2021
-      },
-      "end": {
-        "day": 12,
-        "month": 3,
-        "year": 2021
-      }
+      "start": "2021-03-02",
+      "end": "2021-03-12"
     }
   ]
 }

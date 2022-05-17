@@ -12,11 +12,7 @@
     "phone": "+49 1245 678910",
     "email": "test@company1.de"
   },
-  "letter_date": {
-    "day": 12,
-    "month": 3,
-    "year": 2021
-  },
+  "letter_date": "2021-03-12",
   "letter_nr": 1,
   "recipient": {
     "address": {
