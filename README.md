@@ -29,6 +29,14 @@ the `invoice_nr`/`letter_nr` provided by the `json` input.
 
 ## TODO
 
+* [ ] installation script (and maybe single distribution with
+  dependencies included?)
+
+* [ ] `JSONNET_PATH` for importing the `.libsonnet` files
+
+* [ ] replace `pdflatex` with `reportlab` or some other python native
+  pdf generator
+
 * [ ] time management
 
 * [ ] offer generator
