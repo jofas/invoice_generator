@@ -29,8 +29,8 @@ the `invoice_nr`/`letter_nr` provided by the `json` input.
 
 ## TODO
 
-* [ ] offer generator
-
 * [ ] time management
+
+* [ ] offer generator
 
 * [ ] cost management

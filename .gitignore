@@ -1,8 +1,9 @@
-constants.libsonnet
-recipients.libsonnet
-
+# personal setup using this project
 invoices/
 letters/
+constants.libsonnet
+recipients.libsonnet
+hours.jsonnet
 
 build/
 
