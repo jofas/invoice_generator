@@ -29,6 +29,10 @@ the `invoice_nr`/`letter_nr` provided by the `json` input.
 
 ## TODO
 
+* [ ] move to new repo
+
+* [ ] archive `invoice_generator`
+
 * [ ] installation script (and maybe single distribution with
   dependencies included?)
 
