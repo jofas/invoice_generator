@@ -1,6 +1,6 @@
 # Invoice Generator
 
-[BAREKEEPER](barekeeper.gif)
+[BAREKEEPER](./barekeeper.gif)
 
 Generates invoice PDFs from structured data using a LaTeX template.
 The data is provided by a `json/jsonnet` file.
