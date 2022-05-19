@@ -1,5 +1,8 @@
 # ![BAREKEEPER](./barekeeper.gif)
 
+**THIS REPO IS NOW PART OF [BAREKEEPER](https://github.com/jofas/BAREKEEPER)
+AND NO LONGER MAINTAINED.**
+
 Generates invoice PDFs from structured data using a LaTeX template.
 The data is provided by a `json/jsonnet` file.
 Also supports the generation of business letters.
